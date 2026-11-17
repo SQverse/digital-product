@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>E-Book Buku Modul Pelatihan F64 Ultra — eMMC & UFS | Quantum Telecommunication</title>
+<meta name="description" content="E-book resmi Quantum Telecommunication: panduan lengkap, sistematis, dan praktis menguasai F64 Ultra untuk pembacaan, penulisan, perbaikan, hingga penggantian chip eMMC & UFS. 28 bab, 93 halaman, format PDF.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="E-Book Buku Modul Pelatihan F64 Ultra — eMMC & UFS">
+<meta property="og:description" content="28 bab, 93 halaman, format PDF digital. Disusun oleh Quantum Telecommunication.">
+<meta property="og:image" content="img/cuplikan-1.jpg">
+<meta name="theme-color" content="#061a44">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23061a44'/%3E%3Ccircle cx='29' cy='29' r='15' fill='none' stroke='%23fff' stroke-width='8'/%3E%3Cpath d='M39 39l13 13' stroke='%23ffb81c' stroke-width='9' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,600;0,700;0,800;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --navy:#041230; --navy2:#061a44; --blue:#0b3fa8; --blue2:#1657d6;
+  --amber:#ffb81c; --amber2:#ff9a00; --ink:#0d1b3a; --muted:#51607f;
+  --light:#eaf1fc; --line:#d3deef; --red:#e0261c;
+  --f:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{margin:0;font-family:var(--f);color:var(--ink);background:var(--light);line-height:1.55;font-weight:500;-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+ul{list-style:none;margin:0;padding:0}
+h1,h2,h3,p{margin:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 22px}
+.ico{width:1em;height:1em;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none}
+.dark{background:radial-gradient(ellipse 70% 110% at 80% 10%,#1250c4 0%,transparent 62%),linear-gradient(180deg,var(--navy2),var(--navy));color:#fff;position:relative}
+.dark::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(80,140,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(80,140,255,.07) 1px,transparent 1px);background-size:38px 38px;pointer-events:none}
+.dark>*{position:relative}
+.sec{padding:34px 0}
+.panel{background:linear-gradient(180deg,#fff,#f4f8fe);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 14px 36px -22px rgba(10,40,110,.45)}
+.h2{font-size:clamp(1.25rem,2.4vw,1.55rem);font-weight:800;display:flex;align-items:center;gap:12px;letter-spacing:-.01em}
+.h2 .ico{font-size:1.5em;color:var(--blue)}
+
+/* tombol */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:800;border-radius:9px;padding:13px 22px;font-size:.95rem;cursor:pointer;transition:transform .15s,filter .15s}
+.btn:hover{transform:translateY(-2px);filter:brightness(1.06)}
+.btn .ico{font-size:1.25em;stroke-width:2.2}
+.btn-amber{background:linear-gradient(180deg,#ffd75e,var(--amber) 45%,var(--amber2));color:#1c1300;box-shadow:0 8px 22px -8px rgba(255,170,0,.85)}
+.btn-line{border:1.5px solid rgba(255,255,255,.8);color:#fff;background:rgba(255,255,255,.04)}
+
+/* nav */
+header{position:sticky;top:0;z-index:40;background:rgba(4,18,48,.94);backdrop-filter:blur(10px);color:#fff;border-bottom:1px solid rgba(90,140,255,.25)}
+header .wrap{display:flex;align-items:center;gap:24px;height:66px}
+.logo{display:flex;align-items:center;gap:10px;line-height:1}
+.logo .q{width:38px;height:38px;border:7px solid #fff;border-radius:50%;position:relative;flex:none}
+.logo .q::after{content:"";position:absolute;right:-11px;bottom:-9px;width:17px;height:8px;background:var(--amber);border-radius:4px;transform:rotate(45deg)}
+.logo b{font-size:1.28rem;font-weight:800;letter-spacing:.02em;display:block}
+.logo small{font-size:.58rem;letter-spacing:.2em;font-weight:600;opacity:.9}
+nav{display:flex;gap:26px;margin:0 auto;font-size:.86rem;font-weight:600}
+nav a{opacity:.9;padding:6px 0;border-bottom:2px solid transparent}
+nav a:hover{opacity:1;border-color:var(--amber)}
+header .btn{padding:10px 18px;font-size:.86rem}
+
+/* hero */
+.hero{padding:34px 0 84px;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:center}
+.pill{display:inline-flex;align-items:center;gap:9px;border:1.5px solid rgba(255,255,255,.8);border-radius:10px;padding:5px 16px;font-size:.95rem;font-weight:700;margin-bottom:16px}
+.pill .ico{color:var(--amber);font-size:1.3em}
+.hero h1{font-style:italic;font-weight:900;line-height:.98;letter-spacing:-.02em}
+.hero h1 span{display:block;font-size:clamp(1.5rem,3.4vw,2.2rem);font-weight:800}
+.hero h1 strong{display:block;font-size:clamp(2.9rem,7.6vw,5.2rem);font-weight:900;text-transform:uppercase;background:linear-gradient(180deg,#fff 30%,#a9c8ff);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 6px 18px rgba(40,110,255,.55))}
+.ribbon{display:inline-block;margin:8px 0 16px 0;background:linear-gradient(180deg,#ffd75e,var(--amber) 50%,var(--amber2));color:#0a1b45;font-style:italic;font-weight:900;font-size:clamp(1.8rem,5vw,3.2rem);line-height:1.05;padding:2px 34px 4px;transform:skewX(-14deg);box-shadow:0 8px 24px -8px rgba(255,170,0,.7)}
+.ribbon i{display:inline-block;transform:skewX(14deg);font-style:italic}
+.sub{font-style:italic;font-weight:800;font-size:clamp(1.05rem,2.2vw,1.4rem);line-height:1.2;margin-bottom:12px}
+.hero p.lead{font-size:1rem;max-width:44ch;color:#e6eeff}
+.feats{display:flex;margin:22px 0;max-width:470px}
+.feats li{flex:1;text-align:center;font-size:.72rem;font-weight:600;line-height:1.3;padding:0 8px;border-right:1px solid rgba(255,255,255,.22)}
+.feats li:last-child{border:0}
+.feats .ico{font-size:2rem;color:var(--amber);margin:0 auto 6px;display:block}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+
+/* visual hero: buku 3D berpunggung */
+.visual{position:relative;min-height:500px;display:flex;align-items:center;justify-content:center;perspective:1700px}
+.visual::before{content:"";position:absolute;inset:6% 0;background:radial-gradient(ellipse at 45% 50%,rgba(70,150,255,.6),transparent 62%);filter:blur(12px)}
+.bk{--w:310px;--s:46px;width:var(--w);aspect-ratio:210/290;position:relative;transform-style:preserve-3d;transform:rotateY(27deg) rotateX(3deg);margin-right:60px;transition:transform .6s}
+.bk:hover{transform:rotateY(16deg) rotateX(2deg)}
+.bk .front,.bk .spine{position:absolute;top:0;bottom:0;background:radial-gradient(ellipse at 60% 62%,#1c5fe0,transparent 62%),linear-gradient(165deg,#0c2f86,#04123a);color:#fff}
+.bk .front{left:0;right:0;border-radius:0 6px 6px 0;padding:22px 20px 16px;text-align:center;display:flex;flex-direction:column;box-shadow:inset 6px 0 10px -4px rgba(0,0,0,.45);overflow:hidden}
+.bk .spine{left:calc(var(--s) * -1);width:var(--s);transform-origin:right center;transform:rotateY(-90deg);background:linear-gradient(90deg,#061a52,#0b2f86);display:flex;align-items:center;justify-content:center}
+.bk .spine b{writing-mode:vertical-rl;font-style:italic;font-weight:900;color:var(--amber);font-size:1.02rem;white-space:nowrap;letter-spacing:.02em}
+.bk::after{content:"";position:absolute;left:8%;right:-6%;bottom:-26px;height:30px;background:radial-gradient(ellipse,rgba(0,0,0,.6),transparent 70%);transform:translateZ(-40px);filter:blur(6px)}
+.bk .mini{display:flex;align-items:center;justify-content:center;gap:7px;font-weight:800;font-size:.78rem;letter-spacing:.04em}
+.bk .mini .q{width:17px;height:17px;border:3.5px solid #fff;border-radius:50%;position:relative}
+.bk .mini .q::after{content:"";position:absolute;right:-6px;bottom:-5px;width:8px;height:4px;background:var(--amber);border-radius:2px;transform:rotate(45deg)}
+.bk small{font-size:.74rem;font-weight:700;font-style:italic;margin-top:10px;letter-spacing:.02em}
+.bk h4{margin:4px 0 8px;font-style:italic;font-weight:900;font-size:1.95rem;line-height:1;color:var(--amber);text-shadow:0 3px 10px rgba(0,0,0,.45)}
+.bk p{font-size:.68rem;font-style:italic;font-weight:600;line-height:1.35}
+.bk img{margin:auto;width:68%;filter:drop-shadow(0 8px 10px rgba(0,0,0,.5))}
+.bk footer{font-size:.6rem;font-weight:600;line-height:1.4}
+.bk footer b{display:block;font-size:.95rem;font-weight:800;letter-spacing:.04em}
+.bk footer span{font-size:.62rem;letter-spacing:.14em;font-weight:700}
+
+.seal{position:absolute;top:-1%;left:63%;z-index:3;width:128px;height:128px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff3b0,#ffcf3d 40%,#c98a00 100%);color:#2a1a00;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;font-weight:800;line-height:1.05;box-shadow:0 0 0 5px #b97c00,0 0 0 8px #ffd95a,0 12px 26px -6px rgba(0,0,0,.6)}
+.seal::before,.seal::after{content:"";position:absolute;top:82%;width:34px;height:64px;background:linear-gradient(180deg,#ff4a3d,#b8140c);z-index:-1;clip-path:polygon(0 0,100% 0,100% 100%,50% 76%,0 100%)}
+.seal::before{left:20px;transform:rotate(18deg)}.seal::after{right:20px;transform:rotate(-18deg)}
+.seal em{font-style:normal;font-size:.62rem;letter-spacing:3px}
+.seal span{font-size:.74rem}
+.seal b{font-size:1.75rem;font-weight:900;line-height:1}
+.seal small{font-size:.58rem;font-weight:700}
+
+.chip{position:absolute;right:-6px;z-index:1;font-weight:800;font-size:1.2rem;color:#fff;padding:20px 22px;border-radius:12px;background:linear-gradient(145deg,#1b62e8,#0a2f8a);border:2px solid #7fb4ff;box-shadow:0 0 0 6px rgba(60,130,255,.18),0 0 36px rgba(70,150,255,.9),inset 0 0 18px rgba(140,200,255,.5);transform:perspective(500px) rotateY(-24deg) rotateX(14deg) rotate(-8deg);text-shadow:0 0 12px #fff}
+.chip.c1{top:24%}.chip.c2{top:46%;right:-14px}
+.fmt{position:absolute;right:-6px;bottom:6%;z-index:3;background:rgba(10,40,120,.72);border:1.5px solid rgba(130,180,255,.7);border-radius:12px;padding:12px 16px;backdrop-filter:blur(6px);box-shadow:0 12px 26px -10px rgba(0,0,0,.6)}
+.fmt b{font-size:.84rem;display:block;margin-bottom:8px}
+.fmt div{display:flex;gap:12px;align-items:center;font-size:.68rem;line-height:1.35}
+.fmt strong{display:block;font-size:.86rem;font-weight:700}
+.pdf{width:40px;height:50px;background:linear-gradient(180deg,#ff4a3d,#c8170e);border-radius:5px 12px 5px 5px;position:relative;display:flex;align-items:flex-end;justify-content:center;padding-bottom:7px;font-weight:900;font-size:.7rem;color:#fff;flex:none}
+.pdf::before{content:"";position:absolute;top:0;right:0;border:6px solid;border-color:rgba(10,40,120,.9) rgba(10,40,120,.9) #ff9b93 #ff9b93;border-radius:0 0 0 3px}
+
+/* strip fitur */
+.strip{margin-top:-52px;position:relative;z-index:5}
+.strip ul{display:grid;grid-template-columns:repeat(4,1fr);background:linear-gradient(180deg,#fff,#eef4fd);border:1px solid var(--line);border-radius:18px;padding:18px 10px;box-shadow:0 18px 40px -20px rgba(5,25,80,.6)}
+.strip li{display:flex;gap:14px;align-items:center;padding:4px 18px;border-right:1px solid var(--line);font-size:.92rem;font-weight:800;line-height:1.2}
+.strip li:last-child{border:0}
+.strip .ico{font-size:2.9rem;color:var(--blue);stroke-width:1.6}
+.strip small{display:block;font-weight:500;font-size:.74rem;color:var(--muted);margin-top:3px;line-height:1.3}
+
+/* materi + cuplikan */
+.two{display:grid;grid-template-columns:.8fr 1fr;gap:20px}
+.list{margin-top:14px}
+.list li{display:flex;gap:16px;align-items:center;padding:8px 0;border-bottom:1px solid #e3eaf6;font-size:.86rem;font-weight:600}
+.list li:last-child{border:0}
+.list b{background:linear-gradient(180deg,var(--blue2),var(--blue));color:#fff;border-radius:99px;font-size:.76rem;font-weight:800;min-width:60px;text-align:center;padding:4px 8px;flex:none}
+.fan{display:flex;justify-content:center;align-items:center;padding:26px 6px 10px;min-height:330px}
+.fan a{width:36%;background:#fff;border:1px solid #cfd8ea;box-shadow:0 16px 34px -14px rgba(10,30,90,.55);transition:transform .25s;border-radius:3px;overflow:hidden}
+.fan a:nth-child(1){transform:rotate(-6deg) translateX(8%);z-index:1}
+.fan a:nth-child(2){transform:translateY(-8px);z-index:2}
+.fan a:nth-child(3){transform:rotate(6deg) translateX(-8%);z-index:1}
+.fan a:hover{transform:translateY(-14px) scale(1.04);z-index:3}
+.hint{text-align:center;font-size:.74rem;color:var(--muted);margin-top:6px}
+
+/* siapa & dapat */
+.who{background:linear-gradient(90deg,#f6f9fe 0%,#e3edfc 60%,#bcd3f8 100%);position:relative;overflow:hidden;border-block:1px solid var(--line)}
+.who::after{content:"F64";position:absolute;right:-6px;bottom:-46px;font-size:13rem;font-weight:900;font-style:italic;color:rgba(11,63,168,.1);line-height:1;pointer-events:none}
+.who .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:40px;position:relative;z-index:1}
+.who .col+.col{border-left:1px solid #c9d6ec;padding-left:40px}
+.check{margin-top:14px;display:grid;gap:8px;font-size:.9rem}
+.check li{display:flex;gap:11px;align-items:flex-start}
+.check .ico{font-size:1.2rem;color:#2a1a00;background:var(--amber);border-radius:50%;padding:3px;stroke-width:3.2;margin-top:1px}
+.check b{font-weight:800}
+
+/* keunggulan + beli */
+.buy-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:20px;align-items:stretch}
+.adv{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:16px}
+.adv li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 8px;text-align:center;font-size:.84rem;font-weight:800;line-height:1.2;box-shadow:0 8px 20px -14px rgba(10,40,110,.5)}
+.adv .ico{font-size:2.4rem;color:var(--blue);margin:0 auto 8px;display:block;stroke-width:1.6}
+.adv small{display:block;font-weight:500;font-size:.7rem;color:var(--muted);margin-top:4px;line-height:1.3}
+.buy{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;align-items:center;padding:18px}
+.offer{background:radial-gradient(ellipse at 70% 0,#1657d6,transparent 70%),linear-gradient(180deg,#0b2f86,#04123a);color:#fff;border-radius:14px;padding:30px 20px 22px;text-align:center;position:relative}
+.offer .tagx{position:absolute;top:-14px;left:26px;background:linear-gradient(180deg,#ff4a3d,#c8170e);font-style:italic;font-weight:800;font-size:1rem;padding:4px 16px;transform:rotate(-4deg);border-radius:4px;box-shadow:0 6px 14px -6px rgba(0,0,0,.6)}
+.offer h3{font-size:1rem;font-weight:700}
+.offer h3 em{display:block;color:var(--amber);font-weight:900;font-size:1.25rem;line-height:1.2}
+.offer small{font-size:.76rem;opacity:.9}
+.price{display:inline-block;margin:10px 0 14px;background:linear-gradient(180deg,#ffd75e,var(--amber) 50%,var(--amber2));color:#14204a;font-weight:900;font-size:clamp(1.6rem,3.4vw,1.95rem);line-height:1;padding:9px 22px;border-radius:10px;white-space:nowrap;box-shadow:inset 0 0 0 2px #fff3c2,0 8px 20px -8px rgba(255,170,0,.8)}
+.price s{display:block;font-size:.8rem;font-weight:700;opacity:.7}
+.offer .btn{width:100%;font-size:.84rem;padding:12px 8px;gap:7px}
+.get h3{font-size:.95rem;font-weight:800;margin-bottom:4px}
+.get .check{margin-top:8px;font-size:.84rem;gap:7px}
+
+/* testimoni */
+.testi{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:16px}
+.testi li{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;font-size:.82rem}
+.testi q{display:block;font-style:italic;margin-bottom:10px}
+.testi b{display:block;font-weight:800}
+.testi span{color:var(--muted);font-size:.74rem}
+.testi i{display:block;color:var(--amber);letter-spacing:2px;font-style:normal;margin-top:6px}
+
+/* faq */
+.faq{max-width:840px;margin:18px auto 0}
+details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
+summary{cursor:pointer;list-style:none;padding:15px 18px;font-weight:700;font-size:.95rem;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";color:var(--blue2);font-weight:800;font-size:1.2rem;line-height:1}
+details[open] summary::after{content:"–"}
+details p{padding:0 18px 16px;font-size:.9rem;color:var(--muted)}
+
+/* trust */
+.trust{padding:26px 0;margin-top:34px}
+.trust ul{display:grid;grid-template-columns:repeat(4,1fr)}
+.trust li{display:flex;gap:16px;align-items:center;padding:4px 22px;border-right:1px solid rgba(255,255,255,.22);font-weight:800;font-size:.98rem;line-height:1.25}
+.trust li:last-child{border:0}
+.trust .ico{font-size:3rem;stroke-width:1.5}
+.trust small{display:block;font-weight:500;font-size:.8rem;color:#d5e2ff;margin-top:3px}
+footer.site{background:#020a1f;color:#93a4c8;font-size:.78rem;padding:18px 0 88px;text-align:center}
+footer.site b{color:#fff}
+.mobile-cta{display:none}
+
+@media (max-width:1000px){
+  nav{display:none} header .wrap{justify-content:space-between}
+  .hero .wrap,.two,.who .wrap,.buy-grid{grid-template-columns:1fr}
+  .visual{order:-1;min-height:440px}
+  .bk{--w:250px;--s:38px;margin-right:40px}.bk h4{font-size:1.7rem}
+  .strip ul,.trust ul{grid-template-columns:1fr 1fr;row-gap:18px}
+  .strip li:nth-child(2),.trust li:nth-child(2){border-right:0}
+  .who .col+.col{border-left:0;padding-left:0;border-top:1px solid #c9d6ec;padding-top:26px}
+}
+@media (max-width:680px){
+  header .btn{display:none}
+  .logo b{font-size:1.1rem}
+  .hero{padding-top:20px}
+  .visual{min-height:380px}
+  .bk{--w:200px;--s:30px;margin-right:30px}
+  .bk .front{padding:14px 12px 10px}.bk h4{font-size:1.35rem}.bk small{font-size:.56rem;margin-top:8px}.bk p{font-size:.5rem}.bk footer b{font-size:.7rem}.bk footer,.bk footer span{font-size:.46rem}.bk .mini{font-size:.6rem}.bk .spine b{font-size:.74rem}
+  .seal{width:92px;height:92px;left:62%}.seal b{font-size:1.2rem}.seal span{font-size:.55rem}.seal small,.seal em{font-size:.45rem}
+  .seal::before,.seal::after{width:24px;height:46px}.seal::before{left:14px}.seal::after{right:14px}
+  .chip{font-size:.85rem;padding:11px 12px;right:-10px}
+  .fmt{padding:8px 10px;right:-8px;bottom:0}.fmt b{font-size:.7rem;margin-bottom:5px}.fmt strong{font-size:.72rem}.fmt div{font-size:.58rem;gap:8px}.pdf{width:30px;height:38px;font-size:.55rem}
+  .feats{flex-wrap:wrap;row-gap:14px}.feats li{flex:0 0 50%;border:0}
+  .cta .btn{width:100%}
+  .strip ul,.trust ul{grid-template-columns:1fr}
+  .strip li,.trust li{border-right:0;padding:4px 10px}
+  .fan{min-height:230px}
+  .adv{grid-template-columns:1fr 1fr}
+  .buy{grid-template-columns:1fr}
+  .testi{grid-template-columns:1fr}
+  .mobile-cta{display:flex;align-items:center;gap:12px;justify-content:space-between;position:fixed;left:0;right:0;bottom:0;z-index:50;padding:10px 14px;background:rgba(4,18,48,.96);border-top:1px solid rgba(90,140,255,.3);color:#fff}
+  .mobile-cta div{font-size:.7rem;line-height:1.25}
+  .mobile-cta div b{display:block;color:var(--amber);font-size:1.05rem;font-weight:800}
+  .mobile-cta .btn{padding:11px 16px;font-size:.9rem}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}html{scroll-behavior:auto}}
+
+/* modal checkout */
+.co{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:16px;background:rgba(4,18,48,.72);backdrop-filter:blur(4px)}
+.co[hidden]{display:none}
+.co-box{position:relative;width:100%;max-width:430px;background:#fff;border-radius:18px;padding:26px 24px 22px;box-shadow:0 30px 70px -20px rgba(0,0,0,.6);max-height:calc(100vh - 32px);overflow:auto}
+.co-box h3{font-size:1.2rem;font-weight:800;margin-bottom:4px}
+.co-box .co-sub{font-size:.85rem;color:var(--muted);margin-bottom:16px}
+.co-sum{display:flex;justify-content:space-between;align-items:center;gap:10px;background:var(--light);border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:.85rem;font-weight:700;margin-bottom:16px}
+.co-sum b{font-size:1.05rem;color:var(--blue);white-space:nowrap}
+.co label{display:block;font-size:.8rem;font-weight:700;margin:0 0 5px}
+.co label small{font-weight:500;color:var(--muted)}
+.co input{width:100%;font:inherit;font-size:.95rem;padding:11px 13px;border:1.5px solid var(--line);border-radius:9px;margin-bottom:13px;background:#fff;color:var(--ink)}
+.co input:focus{outline:none;border-color:var(--blue2);box-shadow:0 0 0 3px rgba(22,87,214,.15)}
+.co .btn{width:100%;margin-top:4px;border:0}
+.co .btn[disabled]{opacity:.65;cursor:wait;transform:none}
+.co-x{position:absolute;top:10px;right:12px;width:34px;height:34px;border:0;background:none;font-size:1.6rem;line-height:1;color:var(--muted);cursor:pointer;border-radius:8px}
+.co-x:hover{background:var(--light)}
+.co-err{color:var(--red);font-size:.85rem;font-weight:600;margin:0 0 10px}
+.co-note{font-size:.75rem;color:var(--muted);margin-top:12px;text-align:center}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M4 12h15M13 6l6 6-6 6"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M12 6.5C10 5 7 4.5 3 5v13c4-.5 7 0 9 1.5 2-1.5 5-2 9-1.5V5c-4-.5-7 0-9 1.5ZM12 6.5V19.5"/></symbol>
+  <symbol id="i-chip" viewBox="0 0 24 24"><rect x="6" y="6" width="12" height="12" rx="2"/><rect x="9.5" y="9.5" width="5" height="5"/><path d="M9 3v3M15 3v3M9 18v3M15 18v3M3 9h3M3 15h3M18 9h3M18 15h3"/></symbol>
+  <symbol id="i-tool" viewBox="0 0 24 24"><path d="M14.5 6.5a4 4 0 0 0 5 5L21 13l-8 8-2-2 0-2-2 0-1-1 8-8ZM4 4l5 5M6.5 3.5l-3 3"/></symbol>
+  <symbol id="i-lock" viewBox="0 0 24 24"><rect x="5" y="10.5" width="14" height="10" rx="2"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3M12 14.5v2.5"/></symbol>
+  <symbol id="i-layers" viewBox="0 0 24 24"><path d="M12 3l9 4.5-9 4.5-9-4.5ZM3 12l9 4.5 9-4.5M3 16.5L12 21l9-4.5"/></symbol>
+  <symbol id="i-gear" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5l1.6 2.7 3.1-.6.6 3.1 2.7 1.6-1.4 2.7 1.4 2.7-2.7 1.6-.6 3.1-3.1-.6L12 21.5l-1.6-2.7-3.1.6-.6-3.1L4 14.7 5.4 12 4 9.3l2.7-1.6.6-3.1 3.1.6Z"/></symbol>
+  <symbol id="i-target" viewBox="0 0 24 24"><circle cx="11" cy="13" r="8"/><circle cx="11" cy="13" r="4"/><path d="M11 13l8.5-8.5M16.5 4.5h3v3"/></symbol>
+  <symbol id="i-okc" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9.5"/><path d="M7.5 12.3l3 3 6-6.3"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="12" cy="8" r="3"/><path d="M5.5 20a6.5 6.5 0 0 1 13 0"/><circle cx="4.5" cy="10" r="2"/><circle cx="19.5" cy="10" r="2"/><path d="M1.5 17a3.5 3.5 0 0 1 4-3M22.5 17a3.5 3.5 0 0 0-4-3"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><circle cx="10.5" cy="10.5" r="7"/><path d="M16 16l5.5 5.5"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.2 6.5L12 17.4l-5.9 3.1 1.2-6.5L2.5 9.4l6.6-.9Z"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M8.5 8h7M8.5 12h7M8.5 16h4"/></symbol>
+  <symbol id="i-inf" viewBox="0 0 24 24"><path d="M12 12c-2-3-3.5-4.5-5.5-4.5a4.5 4.5 0 0 0 0 9c2 0 3.5-1.5 5.5-4.5Zm0 0c2 3 3.5 4.5 5.5 4.5a4.5 4.5 0 0 0 0-9c-2 0-3.5 1.5-5.5 4.5Z"/></symbol>
+  <symbol id="i-cart" viewBox="0 0 24 24"><path d="M2.5 4h3l2.5 11h10.5l2-8H7"/><circle cx="9.5" cy="19" r="1.5"/><circle cx="17" cy="19" r="1.5"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 2.5l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10v-6ZM8.5 12l2.5 2.5 4.5-5"/></symbol>
+  <symbol id="i-dl" viewBox="0 0 24 24"><path d="M12 3v12M7 10.5l5 5 5-5M4 17v3.5h16V17"/></symbol>
+  <symbol id="i-head" viewBox="0 0 24 24"><path d="M4.5 14v-2a7.5 7.5 0 0 1 15 0v2M4.5 13h3v6h-3ZM16.5 13h3v6h-3ZM19.5 19c0 1.5-2 2.5-5.5 2.5"/></symbol>
+</svg>
+
+<header>
+  <div class="wrap">
+    <a href="#beranda" class="logo"><span class="q"></span><span><b>QUANTUM</b><small>TELECOMMUNICATION</small></span></a>
+    <nav>
+      <a href="#beranda">Beranda</a>
+      <a href="#tentang">Tentang Buku</a>
+      <a href="#daftar-isi">Daftar Isi</a>
+      <a href="#keunggulan">Keunggulan</a>
+      <a href="#testimoni" data-testi>Testimoni</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <a href="#beli" class="btn btn-amber js-buy"><svg class="ico"><use href="#i-cart"/></svg> Beli Sekarang</a>
+  </div>
+</header>
+
+<main>
+
+<!-- ============ HERO ============ -->
+<section class="dark hero" id="beranda">
+  <div class="wrap">
+    <div>
+      <span class="pill"><svg class="ico"><use href="#i-book"/></svg> E-Book / Buku Digital Resmi</span>
+      <h1><span>Buku Modul Pelatihan</span><strong>F64 Ultra</strong></h1>
+      <div class="ribbon"><i>eMMC &amp; UFS</i></div>
+      <p class="sub">Mastering eMMC &amp; UFS Programming<br>Menggunakan F64 Ultra</p>
+      <p class="lead">Panduan lengkap, sistematis, dan praktis untuk menguasai penggunaan F64 Ultra dalam pembacaan, penulisan, perbaikan, hingga penggantian chip eMMC dan UFS pada perangkat smartphone.</p>
+      <ul class="feats">
+        <li><svg class="ico"><use href="#i-chip"/></svg>eMMC &amp; UFS Programming</li>
+        <li><svg class="ico"><use href="#i-tool"/></svg>Repair &amp; Recovery</li>
+        <li><svg class="ico"><use href="#i-lock"/></svg>Bypass FRP Userlock &amp; Cloud</li>
+        <li><svg class="ico"><use href="#i-layers"/></svg>Studi Kasus &amp; Troubleshooting</li>
+      </ul>
+      <div class="cta">
+        <a href="#beli" class="btn btn-amber js-buy"><svg class="ico"><use href="#i-cart"/></svg> Beli E-Book Sekarang <svg class="ico"><use href="#i-arrow"/></svg></a>
+        <a href="#daftar-isi" class="btn btn-line">Lihat Daftar Isi</a>
+      </div>
+    </div>
+
+    <div class="visual">
+      <div class="bk" aria-label="Mockup sampul Buku Modul Pelatihan F64 Ultra eMMC & UFS">
+        <div class="spine"><b>F64 ULTRA eMMC &amp; UFS</b></div>
+        <div class="front">
+          <div class="mini"><span class="q"></span>QUANTUM</div>
+          <small>BUKU MODUL PELATIHAN</small>
+          <h4>F64 ULTRA<br>eMMC &amp; UFS</h4>
+          <p>Mastering eMMC &amp; UFS Programming<br>Menggunakan F64 Ultra</p>
+          <img src="img/f64-kit.png" alt="" width="960" height="960">
+          <footer>Disusun oleh :<b>QUANTUM</b><span>TELECOMMUNICATION</span></footer>
+        </div>
+      </div>
+      <div class="seal"><em>★★★</em><span>MODUL<br>LENGKAP</span><b>28 BAB</b><small>(93 HALAMAN)</small></div>
+      <span class="chip c1">eMMC</span>
+      <span class="chip c2">UFS</span>
+      <div class="fmt"><b>Format E-Book :</b><div><span class="pdf">PDF</span><span><strong>PDF (Digital)</strong>Siap diunduh<br>setelah pembayaran</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ STRIP ============ -->
+<section class="strip" id="tentang">
+  <div class="wrap">
+    <ul>
+      <li><svg class="ico"><use href="#i-book"/></svg><span>Materi Lengkap &amp; Terstruktur<small>(28 BAB / 93 Halaman)</small></span></li>
+      <li><svg class="ico"><use href="#i-target"/></svg><span>Cocok untuk Berbagai Level<small>Pemula – Menengah – Instruktur</small></span></li>
+      <li><svg class="ico"><use href="#i-gear"/></svg><span>Berdasarkan Praktik Lapangan<small>Studi kasus &amp; solusi nyata</small></span></li>
+      <li><svg class="ico"><use href="#i-okc"/></svg><span>Disusun oleh Quantum Telecommunication<small>(Lembaga Pelatihan Teknisi Smartphone)</small></span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ DAFTAR ISI + CUPLIKAN ============ -->
+<section class="sec" id="daftar-isi">
+  <div class="wrap two">
+    <div class="panel">
+      <h2 class="h2"><svg class="ico"><use href="#i-book"/></svg>Daftar Materi (28 BAB)</h2>
+      <ul class="list">
+        <li><b>01</b>Pendahuluan &amp; Pengenalan Hardware F64 Ultra</li>
+        <li><b>02</b>Instalasi Software, Driver &amp; Lingkungan Kerja</li>
+        <li><b>03</b>Arsitektur Memori Flash – eMMC, eMCP, UFS, uMCP</li>
+        <li><b>04</b>Antarmuka Software F64 Ultra</li>
+        <li><b>05–10</b>Pemrograman eMMC &amp; UFS (Operasi, Konfigurasi, Repair)</li>
+        <li><b>11–15</b>Teknik ISP, Baseband, IMEI, Security &amp; Bypass Lock</li>
+        <li><b>16–20</b>Chip Replacement, Unbrick &amp; Programming Brand (Samsung, Xiaomi, OPPO/Realme/Vivo)</li>
+        <li><b>21–28</b>Fitur Advanced, Socket &amp; Adapter, Diagnosa, Studi Kasus, Glosarium, SOP &amp; Lampiran</li>
+      </ul>
+    </div>
+    <div class="panel">
+      <h2 class="h2"><svg class="ico"><use href="#i-search"/></svg>Cuplikan Isi Buku</h2>
+      <div class="fan">
+        <a href="img/cuplikan-1.jpg" target="_blank" rel="noopener"><img src="img/cuplikan-1.jpg" alt="Cuplikan halaman 1.1 Mengenal F64 Ultra dan 1.2 Spesifikasi Hardware" loading="lazy" width="662" height="936"></a>
+        <a href="img/cuplikan-2.jpg" target="_blank" rel="noopener"><img src="img/cuplikan-2.jpg" alt="Cuplikan halaman Diagram Blok Arsitektur Hardware Internal F64 Ultra" loading="lazy" width="662" height="936"></a>
+        <a href="img/cuplikan-3.jpg" target="_blank" rel="noopener"><img src="img/cuplikan-3.jpg" alt="Cuplikan halaman Grafik Perbandingan Kecepatan Read/Write" loading="lazy" width="662" height="936"></a>
+      </div>
+      <p class="hint">Halaman asli dari e-book — klik untuk memperbesar.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SIAPA & DAPAT ============ -->
+<section class="who sec">
+  <div class="wrap">
+    <div class="col">
+      <h2 class="h2"><svg class="ico"><use href="#i-users"/></svg>Cocok untuk Siapa?</h2>
+      <ul class="check">
+        <li><svg class="ico"><use href="#i-check"/></svg><span><b>Teknisi Pemula</b> – baru mengenal perbaikan storage</span></li>
+        <li><svg class="ico"><use href="#i-check"/></svg><span><b>Teknisi Menengah</b> – ingin memperdalam teknik ISP, direct, dan repair advanced</span></li>
+        <li><svg class="ico"><use href="#i-check"/></svg><span><b>Instruktur</b> – sebagai referensi materi pelatihan</span></li>
+        <li><svg class="ico"><use href="#i-check"/></svg><span><b>Peserta Roadshow Quantum</b> – pendamping belajar pasca pelatihan</span></li>
+      </ul>
+    </div>
+    <div class="col">
+      <h2 class="h2"><svg class="ico"><use href="#i-target"/></svg>Apa yang Akan Anda Dapatkan?</h2>
+      <ul class="check">
+        <li><svg class="ico"><use href="#i-check"/></svg>Menguasai penggunaan hardware &amp; software F64 Ultra</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Membaca, menulis, backup, dan restore eMMC/UFS</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Mengatasi eMMC/UFS corrupt, dead boot, dan unbrick</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Melakukan konfigurasi partisi, baseband, IMEI &amp; security</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Bypass FRP, userlock &amp; cloud lock</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Panduan penggantian (swap) IC eMMC/UFS</li>
+        <li><svg class="ico"><use href="#i-check"/></svg>Lengkap dengan studi kasus, error common, serta SOP bengkel</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ KEUNGGULAN + BELI ============ -->
+<section class="sec" id="keunggulan">
+  <div class="wrap buy-grid">
+    <div class="panel">
+      <h2 class="h2"><svg class="ico"><use href="#i-star"/></svg>Keunggulan Buku Ini</h2>
+      <ul class="adv">
+        <li><svg class="ico"><use href="#i-book"/></svg>Materi Sistematis<small>dari dasar hingga advanced</small></li>
+        <li><svg class="ico"><use href="#i-gear"/></svg>Berbasis Praktik<small>&amp; Studi Kasus nyata di bengkel</small></li>
+        <li><svg class="ico"><use href="#i-doc"/></svg>Referensi Lengkap<small>(Glosarium, SOP &amp; Cheat Sheet Pinout)</small></li>
+        <li><svg class="ico"><use href="#i-inf"/></svg>Akses Selamanya<small>Bisa diunduh kapan saja</small></li>
+      </ul>
+    </div>
+    <div class="panel buy" id="beli">
+      <div class="offer">
+        <span class="tagx">Dapatkan Sekarang!</span>
+        <h3>Buku Modul Pelatihan<em>F64 ULTRA eMMC &amp; UFS</em></h3>
+        <small>(Format Digital PDF – 93 Halaman)</small><br>
+        <div class="price"><s id="priceOld"></s><span id="price"></span></div>
+        <a href="#" class="btn btn-amber js-buy"><svg class="ico"><use href="#i-cart"/></svg> Beli Sekarang &amp; Download Modulnya <svg class="ico"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="get">
+        <h3>Anda akan mendapatkan:</h3>
+        <ul class="check">
+          <li><svg class="ico"><use href="#i-check"/></svg>File E-Book (PDF, 93 Halaman)</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Akses Download Setelah Pembayaran</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Update Revisi (Jika Ada)</li>
+          <li><svg class="ico"><use href="#i-check"/></svg>Support via WhatsApp (Panduan Download)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TESTIMONI (tampil hanya jika diisi) ============ -->
+<section class="sec" id="testimoni" hidden>
+  <div class="wrap">
+    <h2 class="h2"><svg class="ico"><use href="#i-target"/></svg>Testimoni Pembaca</h2>
+    <ul class="testi" id="testiList"></ul>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section class="sec" id="faq">
+  <div class="wrap">
+    <h2 class="h2" style="justify-content:center">Pertanyaan yang Sering Diajukan</h2>
+    <div class="faq">
+      <details><summary>Bukunya dalam format apa?</summary><p>E-book digital berformat PDF, 93 halaman ukuran A4, berisi 28 bab lengkap dengan gambar, tabel, dan diagram. Bukan buku cetak.</p></details>
+      <details><summary>Bagaimana cara mendapatkan filenya setelah membayar?</summary><p id="faqAkses"></p></details>
+      <details><summary>Apakah e-book ini cocok untuk pemula?</summary><p>Ya. Materi disusun bertahap, dimulai dari pengenalan alat, instalasi software, dan dasar teori memori flash sebelum masuk ke praktik dan teknik advanced.</p></details>
+      <details><summary>Apakah pembelian sudah termasuk alat F64 Ultra?</summary><p>Tidak. Yang Anda dapatkan adalah e-book modul pembelajarannya. Alat F64 Ultra, socket, dan adapter disiapkan sendiri.</p></details>
+      <details><summary>Apakah saya mendapat pembaruan jika ada revisi?</summary><p>Ya. Jika ada revisi materi, pembeli akan mendapatkan update revisinya.</p></details>
+      <details><summary>Bolehkah e-book ini dibagikan atau dijual ulang?</summary><p>Tidak. Ini dokumen modul resmi Quantum Telecommunication dan hak ciptanya dilindungi undang-undang.</p></details>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRUST ============ -->
+<section class="dark trust">
+  <div class="wrap">
+    <ul>
+      <li><svg class="ico"><use href="#i-shield"/></svg><span>Aman &amp; Terpercaya<small>Dipersembahkan oleh Quantum Telecommunication</small></span></li>
+      <li><svg class="ico"><use href="#i-dl"/></svg><span>Akses Cepat<small>Setelah pembayaran, langsung bisa diunduh</small></span></li>
+      <li><svg class="ico"><use href="#i-lock"/></svg><span>Pembayaran Aman<small>Tersedia berbagai metode pembayaran</small></span></li>
+      <li><svg class="ico"><use href="#i-head"/></svg><span>Support Resmi<small>Bantuan via WhatsApp jika ada kendala</small></span></li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap"><b>Quantum Telecommunication</b> · Jl. Bina Remaja No. 4, Srondol Wetan, Banyumanik, Semarang<br>Modul Pelatihan F64 Ultra — Hak Cipta Dilindungi Undang-Undang. Materi ditujukan untuk pelatihan dan perbaikan perangkat yang sah, atas izin pemilik perangkat.</div>
+</footer>
+
+<div class="mobile-cta"><div>E-Book F64 Ultra<b id="priceSticky"></b></div><a href="#beli" class="btn btn-amber js-buy"><svg class="ico"><use href="#i-cart"/></svg> Beli Sekarang</a></div>
+
+<!-- ============ MODAL CHECKOUT ============ -->
+<div class="co" id="checkout" hidden role="dialog" aria-modal="true" aria-labelledby="coTitle">
+  <form class="co-box" id="coForm" novalidate>
+    <button type="button" class="co-x" data-close aria-label="Tutup">&times;</button>
+    <h3 id="coTitle">Data Pembeli</h3>
+    <p class="co-sub">Link download &amp; password e-book dikirim ke email Anda setelah pembayaran berhasil.</p>
+    <div class="co-sum"><span>E-Book Modul F64 Ultra (PDF)</span><b id="coPrice"></b></div>
+    <label for="coName">Nama lengkap</label>
+    <input id="coName" name="name" autocomplete="name" required maxlength="80">
+    <label for="coEmail">Email <small>(pastikan benar &amp; aktif)</small></label>
+    <input id="coEmail" name="email" type="email" autocomplete="email" required maxlength="120">
+    <label for="coPhone">No. WhatsApp <small>(opsional)</small></label>
+    <input id="coPhone" name="phone" type="tel" inputmode="tel" autocomplete="tel" maxlength="20" placeholder="08xxxxxxxxxx">
+    <p class="co-err" id="coErr" hidden></p>
+    <button class="btn btn-amber" id="coBtn" type="submit"><svg class="ico"><use href="#i-lock"/></svg> Lanjut ke Pembayaran</button>
+    <p class="co-note">Pembayaran aman diproses oleh Xendit · QRIS, Virtual Account, e-wallet, retail.<br>E-book berisi identitas pembeli &amp; hanya untuk penggunaan pribadi.</p>
+  </form>
+</div>
+
+<script>
+/* =====================================================================
+   PENGATURAN — CUKUP UBAH BAGIAN INI SEBELUM UPLOAD
+   ===================================================================== */
+var CONFIG = {
+  // Harga e-book
+  harga: "Rp 199.000",
+
+  // Harga coret (opsional). Kosongkan "" jika tidak ada.
+  hargaCoret: "",
+
+  // CHECKOUT OTOMATIS (Xendit). true = tombol beli membuka form & pembayaran otomatis.
+  // false = memakai linkBeli / WhatsApp di bawah (mis. saat backend belum siap).
+  // Catatan: harga yang DITAGIH diatur di server (env PRODUCT_PRICE), bukan di sini.
+  checkoutOtomatis: true,
+
+  // LINK PEMBELIAN — dipakai jika checkoutOtomatis = false.
+  // Jika dikosongkan "", semua tombol beli diarahkan ke WhatsApp admin di bawah.
+  linkBeli: "",
+
+  // Nomor WhatsApp admin, format internasional TANPA tanda + dan spasi. Contoh: "628123456789"
+  whatsapp: "62XXXXXXXXXXX",
+  pesanWA: "Halo Admin Quantum, saya ingin membeli E-Book Buku Modul Pelatihan F64 Ultra (eMMC & UFS).",
+
+  // Jawaban FAQ "Bagaimana cara mendapatkan filenya setelah membayar?"
+  caraAkses: "Setelah pembayaran berhasil, Anda mendapatkan akses download file PDF. Jika ada kendala saat mengunduh, hubungi admin kami melalui WhatsApp.",
+
+  // TESTIMONI — isi HANYA dengan testimoni asli pembeli. Selama kosong, bagian Testimoni tidak ditampilkan.
+  // Contoh format:  { teks: "…", nama: "Nama Pembeli", ket: "Teknisi — Kota" }
+  testimoni: []
+};
+/* ===================================================================== */
+
+(function(){
+  function esc(s){ var d=document.createElement("div"); d.textContent=s; return d.innerHTML; }
+  if (CONFIG.checkoutOtomatis) {
+    setupCheckout();
+  } else {
+    var buy = CONFIG.linkBeli || ("https://wa.me/" + CONFIG.whatsapp + "?text=" + encodeURIComponent(CONFIG.pesanWA + " (" + CONFIG.harga + ")"));
+    document.querySelectorAll(".js-buy").forEach(function(a){ a.href = buy; a.target = "_blank"; a.rel = "noopener"; });
+  }
+
+  function setupCheckout(){
+    var modal = document.getElementById("checkout"), form = document.getElementById("coForm");
+    var err = document.getElementById("coErr"), btn = document.getElementById("coBtn"), lastFocus = null;
+    document.getElementById("coPrice").textContent = CONFIG.harga;
+
+    function open(e){ e.preventDefault(); lastFocus = document.activeElement; modal.hidden = false; document.body.style.overflow = "hidden"; document.getElementById("coName").focus(); }
+    function close(){ if (btn.disabled) return; modal.hidden = true; document.body.style.overflow = ""; if (lastFocus) lastFocus.focus(); }
+    function showErr(m){ err.textContent = m; err.hidden = !m; }
+
+    document.querySelectorAll(".js-buy").forEach(function(a){ a.href = "#beli"; a.addEventListener("click", open); });
+    modal.addEventListener("click", function(e){ if (e.target === modal || e.target.closest("[data-close]")) close(); });
+    document.addEventListener("keydown", function(e){ if (e.key === "Escape" && !modal.hidden) close(); });
+
+    form.addEventListener("submit", function(e){
+      e.preventDefault();
+      var data = { name: form.name.value.trim(), email: form.email.value.trim(), phone: form.phone.value.trim() };
+      if (data.name.length < 2) return showErr("Nama wajib diisi.");
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(data.email)) return showErr("Alamat email tidak valid.");
+      showErr("");
+      btn.disabled = true; btn.lastChild.textContent = " Memproses…";
+      fetch("/api/checkout", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) })
+        .then(function(r){ return r.json().then(function(j){ if (!r.ok) throw new Error(j.error || "Gagal"); return j; }); })
+        .then(function(j){
+          try { localStorage.setItem("qt_last_order", j.orderId); } catch(_){}
+          window.location.href = j.invoiceUrl;
+        })
+        .catch(function(x){
+          showErr(x.message && x.message !== "Failed to fetch" ? x.message : "Koneksi gagal, silakan coba lagi.");
+          btn.disabled = false; btn.lastChild.textContent = " Lanjut ke Pembayaran";
+        });
+    });
+  }
+
+  document.getElementById("price").textContent = CONFIG.harga;
+  document.getElementById("priceSticky").textContent = CONFIG.harga;
+  var old = document.getElementById("priceOld");
+  if (CONFIG.hargaCoret) old.textContent = CONFIG.hargaCoret; else old.style.display = "none";
+  document.getElementById("faqAkses").textContent = CONFIG.caraAkses;
+
+  var t = CONFIG.testimoni || [];
+  if (t.length){
+    document.getElementById("testimoni").hidden = false;
+    document.getElementById("testiList").innerHTML = t.map(function(x){
+      return '<li><q>' + esc(x.teks) + '</q><b>' + esc(x.nama) + '</b><span>' + esc(x.ket||"") + '</span><i>★★★★★</i></li>';
+    }).join("");
+  } else {
+    document.querySelectorAll("[data-testi]").forEach(function(e){ e.style.display = "none"; });
+  }
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Status Pesanan | Quantum Telecommunication</title>
+<meta name="theme-color" content="#061a44">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--navy:#041230;--navy2:#061a44;--blue:#0b3fa8;--amber:#ffb81c;--amber2:#ff9a00;--ink:#0d1b3a;--muted:#51607f;--light:#eaf1fc;--line:#d3deef;--red:#e0261c;--green:#12924a}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;font-family:'Montserrat',system-ui,sans-serif;color:var(--ink);font-weight:500;line-height:1.55;
+  background:radial-gradient(ellipse 70% 110% at 80% 10%,#1250c4 0%,transparent 62%),linear-gradient(180deg,var(--navy2),var(--navy))}
+.card{width:100%;max-width:470px;background:#fff;border-radius:18px;padding:30px 26px;text-align:center;box-shadow:0 30px 70px -20px rgba(0,0,0,.6)}
+.ic{width:66px;height:66px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;font-size:2rem;font-weight:800;color:#fff;background:var(--blue)}
+.ic.ok{background:var(--green)} .ic.bad{background:var(--red)}
+.spin{width:30px;height:30px;border:4px solid rgba(255,255,255,.35);border-top-color:#fff;border-radius:50%;animation:s 1s linear infinite}
+@keyframes s{to{transform:rotate(360deg)}}
+h1{font-size:1.3rem;margin:0 0 8px;font-weight:800}
+p{margin:0 0 12px;color:var(--muted)}
+p b{color:var(--ink)}
+.code{display:inline-block;background:var(--light);border:1px solid var(--line);border-radius:8px;padding:4px 12px;font-weight:700;font-size:.85rem;margin-bottom:14px}
+.btn{display:inline-flex;align-items:center;justify-content:center;font:inherit;font-weight:800;border-radius:9px;padding:12px 20px;font-size:.92rem;cursor:pointer;border:0;text-decoration:none;margin:4px}
+.btn-amber{background:linear-gradient(180deg,#ffd75e,var(--amber) 45%,var(--amber2));color:#1c1300}
+.btn-line{background:#fff;border:1.5px solid var(--line);color:var(--ink)}
+.btn[disabled]{opacity:.6;cursor:wait}
+.tips{text-align:left;font-size:.82rem;background:var(--light);border-radius:10px;padding:12px 14px;margin:16px 0 6px;color:var(--muted)}
+.tips li{margin:3px 0}
+.msg{font-size:.85rem;font-weight:600;min-height:1.2em;margin-top:8px}
+.home{display:block;margin-top:16px;font-size:.82rem;color:var(--blue);font-weight:700;text-decoration:none}
+@media (prefers-reduced-motion:reduce){.spin{animation-duration:3s}}
+</style>
+</head>
+<body>
+<main class="card" id="app" aria-live="polite">
+  <div class="ic"><div class="spin"></div></div>
+  <h1>Memeriksa pembayaran…</h1>
+  <p>Mohon tunggu sebentar, jangan tutup halaman ini.</p>
+</main>
+
+<script>
+/* Nomor WhatsApp admin (format 628xxx). Samakan dengan CONFIG di index.html */
+var WHATSAPP = "62XXXXXXXXXXX";
+
+(function(){
+  var app = document.getElementById("app");
+  var id = new URLSearchParams(location.search).get("order");
+  if (!id) { try { id = localStorage.getItem("qt_last_order"); } catch(_){} }
+  var tries = 0, MAX_TRIES = 40; // ±2 menit
+
+  function esc(s){ return String(s == null ? "" : s).replace(/[&<>"']/g, function(c){ return { "&":"&amp;", "<":"&lt;", ">":"&gt;", '"':"&quot;", "'":"&#39;" }[c]; }); }
+  function wa(){ return /^62\d{8,}$/.test(WHATSAPP) ? '<a class="btn btn-line" href="https://wa.me/' + WHATSAPP + '" target="_blank" rel="noopener">Hubungi Admin</a>' : ""; }
+  function render(icon, cls, title, body){
+    app.innerHTML = '<div class="ic ' + cls + '">' + icon + '</div><h1>' + title + '</h1>' + body + '<a class="home" href="/">&larr; Kembali ke beranda</a>';
+  }
+
+  if (!id) {
+    render("?", "", "Pesanan tidak ditemukan", "<p>Silakan cek email Anda, atau hubungi admin bila sudah membayar.</p>" + wa());
+    return;
+  }
+
+  function check(){
+    fetch("/api/order-status?id=" + encodeURIComponent(id), { cache: "no-store" })
+      .then(function(r){ if (r.status === 404) throw new Error("404"); return r.json(); })
+      .then(show)
+      .catch(function(e){
+        if (e.message === "404") return render("?", "", "Pesanan tidak ditemukan", "<p>Periksa kembali link Anda atau hubungi admin.</p>" + wa());
+        retry();
+      });
+  }
+  function retry(){
+    if (++tries < MAX_TRIES) return setTimeout(check, 3000);
+    render("&#8987;", "", "Pembayaran belum terkonfirmasi",
+      "<p>Jika Anda <b>sudah membayar</b>, konfirmasi biasanya masuk dalam beberapa menit dan link download akan dikirim otomatis ke email Anda.</p>" +
+      '<button class="btn btn-amber" id="again">Cek Lagi</button>' + wa());
+    document.getElementById("again").onclick = function(){ tries = 0; app.innerHTML = '<div class="ic"><div class="spin"></div></div><h1>Memeriksa pembayaran…</h1>'; check(); };
+  }
+
+  function show(o){
+    var code = '<div class="code">Order #' + esc(o.code) + '</div>';
+    if (o.status === "PAID") {
+      render("&#10003;", "ok", "Pembayaran Berhasil!",
+        code +
+        "<p>" + (o.emailSent ? "Link download &amp; password e-book sudah dikirim ke" : "Link download &amp; password e-book sedang dikirim ke") +
+        " <b>" + esc(o.email) + "</b>.</p>" +
+        '<ul class="tips"><li>Belum masuk? Cek folder <b>Spam / Promosi</b>.</li><li>Tunggu 1–2 menit sebelum meminta kirim ulang.</li><li>Link punya masa berlaku. Jika kedaluwarsa, minta link baru di halaman ini.</li></ul>' +
+        '<button class="btn btn-amber" id="resend">Kirim Ulang Link ke Email</button>' + wa() + '<div class="msg" id="msg"></div>');
+      var b = document.getElementById("resend"), m = document.getElementById("msg");
+      b.onclick = function(){
+        b.disabled = true; m.style.color = ""; m.textContent = "Mengirim…";
+        fetch("/api/resend-link", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ id: id }) })
+          .then(function(r){ return r.json().then(function(j){ if (!r.ok) throw new Error(j.error || "Gagal"); }); })
+          .then(function(){ m.style.color = "#12924a"; m.textContent = "Link baru sudah dikirim. Link sebelumnya tidak berlaku lagi."; })
+          .catch(function(e){ m.style.color = "#e0261c"; m.textContent = e.message; })
+          .then(function(){ setTimeout(function(){ b.disabled = false; }, 5000); });
+      };
+      return;
+    }
+    if (o.status === "EXPIRED") {
+      return render("&times;", "bad", "Tagihan Kedaluwarsa", code + "<p>Batas waktu pembayaran sudah lewat. Silakan lakukan pemesanan ulang.</p>" +
+        '<a class="btn btn-amber" href="/#beli">Pesan Ulang</a>' + wa());
+    }
+    // PENDING
+    if (tries === 0 && /^https:\/\//.test(o.invoiceUrl || "")) {
+      app.innerHTML = '<div class="ic"><div class="spin"></div></div><h1>Menunggu pembayaran…</h1>' + code +
+        '<p>Halaman ini akan diperbarui otomatis setelah pembayaran diterima.</p>' +
+        '<a class="btn btn-line" href="' + esc(o.invoiceUrl) + '">Buka Halaman Pembayaran</a>';
+    }
+    retry();
+  }
+
+  check();
+})();
+</script>
+</body>
+</html>
