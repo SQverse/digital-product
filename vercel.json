@@ -3,7 +3,7 @@
   "crons": [{ "path": "/api/keep-alive", "schedule": "0 1 * * *" }],
   "functions": {
     "api/download.js": { "maxDuration": 60, "memory": 1024 },
-    "api/xendit-webhook.js": { "maxDuration": 30 }
+    "api/duitku-callback.js": { "maxDuration": 30 }
   },
   "headers": [
     {

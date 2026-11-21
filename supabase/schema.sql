@@ -8,7 +8,7 @@ create table if not exists public.orders (
   phone                text,
   amount               integer not null,
   status               text not null default 'PENDING' check (status in ('PENDING','PAID','EXPIRED')),
-  xendit_invoice_id    text unique,
+  xendit_invoice_id    text unique,                     -- berisi "reference" Duitku (nama kolom warisan dari Xendit)
   invoice_url          text,
   payment_method       text,
   paid_at              timestamptz,

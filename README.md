@@ -1,20 +1,20 @@
-# Landing Page E-Book + Pembayaran Otomatis (Xendit)
+# Landing Page E-Book + Pembayaran Otomatis (Duitku)
 
 Landing page statis + serverless function di Vercel. Tidak ada server yang perlu dirawat.
 
 ## Alur
 
 ```
-Pembeli isi form (nama, email) ──► /api/checkout ──► buat order (Supabase) + invoice (Xendit)
+Pembeli isi form (nama, email) ──► /api/checkout ──► buat order (Supabase) + tagihan (Duitku)
         │
         ▼
-Halaman bayar Xendit (QRIS / VA / e-wallet / retail)
+Halaman bayar Duitku (QRIS / VA / e-wallet / retail)
         │
         ├──► redirect ke /sukses.html (menunggu konfirmasi)
         │
-        └──► Xendit memanggil /api/xendit-webhook
-                 1. cek x-callback-token
-                 2. cek ulang status invoice langsung ke API Xendit
+        └──► Duitku memanggil /api/duitku-callback
+                 1. cek signature md5(merchantCode+amount+merchantOrderId+apiKey)
+                 2. cek ulang status transaksi langsung ke API Duitku
                  3. cek nominal, ubah order -> PAID (sekali saja)
                  4. kirim email: link download + password PDF
                          │
@@ -33,8 +33,8 @@ Halaman bayar Xendit (QRIS / VA / e-wallet / retail)
 |---|---|
 | `index.html` | Landing page + form checkout (`CONFIG.checkoutOtomatis`) |
 | `sukses.html` | Status pesanan, tombol kirim ulang link |
-| `api/checkout.js` | Membuat order + invoice Xendit |
-| `api/xendit-webhook.js` | Menerima notifikasi pembayaran |
+| `api/checkout.js` | Membuat order + tagihan Duitku |
+| `api/duitku-callback.js` | Menerima notifikasi pembayaran dari Duitku |
 | `api/download.js` | Membuat PDF ber-watermark & mengirim file |
 | `api/order-status.js` | Status order untuk halaman sukses |
 | `api/resend-link.js` | Kirim ulang link ke email pembeli |
@@ -56,11 +56,13 @@ Halaman bayar Xendit (QRIS / VA / e-wallet / retail)
 2. **Domains** → tambahkan domain toko & pasang DNS record yang diminta (agar email tidak masuk spam)
 3. **API Keys** → buat key
 
-### 3. Xendit
-1. Daftar & lengkapi verifikasi di https://dashboard.xendit.co
-2. Mulai di **Test Mode**: **Settings → API Keys** → buat Secret Key (izin *Money-in: Write*)
-3. **Settings → Webhooks** → bagian *Invoices* → isi `https://DOMAIN-ANDA/api/xendit-webhook`
-   Catat **Verification Token** di halaman yang sama.
+### 3. Duitku
+1. Uji coba dulu di **sandbox**: daftar di https://sandbox.duitku.com, buat **Proyek** baru.
+   Catat **Kode Merchant** (`DUITKU_MERCHANT_CODE`) dan **API Key** (`DUITKU_API_KEY`), set `DUITKU_ENV=sandbox`.
+2. Di pengaturan proyek, isi **Callback URL**: `https://DOMAIN-ANDA/api/duitku-callback`
+   dan **Return URL**: `https://DOMAIN-ANDA/sukses.html`
+3. Untuk jualan sungguhan: daftar & verifikasi di https://passport.duitku.com (perorangan: KTP + rekening),
+   buat proyek dengan URL yang sama, lalu ganti kode merchant, API key, dan `DUITKU_ENV=production`.
 
 ### 4. Deploy ke Vercel
 1. Push folder ini ke GitHub (repo privat), lalu **Import** di https://vercel.com
@@ -72,9 +74,9 @@ Halaman bayar Xendit (QRIS / VA / e-wallet / retail)
 
 ### 5. Uji coba (Test Mode)
 1. Buka website → Beli → isi form pakai email Anda sendiri
-2. Di halaman invoice Xendit test mode, selesaikan simulasi pembayaran
+2. Di halaman pembayaran Duitku sandbox, selesaikan simulasi pembayaran (lihat panduan sandbox Duitku untuk cara membayar VA/QRIS uji coba)
 3. Pastikan: halaman sukses berubah jadi "Berhasil", email masuk, file bisa dibuka dengan password, dan watermark muncul
-4. Setelah lancar, ganti `XENDIT_SECRET_KEY` & webhook ke **Live Mode**
+4. Setelah lancar, ganti `DUITKU_MERCHANT_CODE`, `DUITKU_API_KEY` ke akun production dan `DUITKU_ENV=production`
 
 ## Pekerjaan admin sehari-hari (lewat Supabase → Table Editor → `orders`)
 

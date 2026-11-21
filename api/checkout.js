@@ -1,7 +1,7 @@
 // POST /api/checkout  { name, email, phone? }  ->  { invoiceUrl, orderId }
 import { config } from "../lib/config.js";
 import { db } from "../lib/supabase.js";
-import { createInvoice } from "../lib/xendit.js";
+import { createInvoice } from "../lib/duitku.js";
 import { json, newOrderCode, newPdfPassword } from "../lib/util.js";
 
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
@@ -38,10 +38,11 @@ export async function POST(request) {
 
     await db()
       .from("orders")
-      .update({ xendit_invoice_id: invoice.id, invoice_url: invoice.invoice_url })
+      // kolom xendit_invoice_id dipakai ulang untuk menyimpan "reference" dari Duitku
+      .update({ xendit_invoice_id: invoice.reference, invoice_url: invoice.paymentUrl })
       .eq("id", order.id);
 
-    return json({ invoiceUrl: invoice.invoice_url, orderId: order.id });
+    return json({ invoiceUrl: invoice.paymentUrl, orderId: order.id });
   } catch (err) {
     console.error("checkout error:", err);
     return json({ error: "Gagal membuat pembayaran. Silakan coba lagi sebentar lagi." }, 500);

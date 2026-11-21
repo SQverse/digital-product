@@ -47,7 +47,8 @@ var WHATSAPP = "62XXXXXXXXXXX";
 
 (function(){
   var app = document.getElementById("app");
-  var id = new URLSearchParams(location.search).get("order");
+  var qs = new URLSearchParams(location.search);
+  var id = qs.get("order") || qs.get("merchantOrderId");
   if (!id) { try { id = localStorage.getItem("qt_last_order"); } catch(_){} }
   var tries = 0, MAX_TRIES = 40; // ±2 menit
 
